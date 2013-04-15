@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ConsoleApplication1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="STP_P" Type="System.String" Scope="User">
+      <Value Profile="(Default)">32/16</Value>
+    </Setting>
+    <Setting Name="STP_CO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">37/22</Value>
+    </Setting>
+    <Setting Name="STP_SU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">39/27</Value>
+    </Setting>
+    <Setting Name="STP_CB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">26/33</Value>
+    </Setting>
+    <Setting Name="STP_SN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">17/39</Value>
+    </Setting>
+    <Setting Name="STP_D" Type="System.String" Scope="User">
+      <Value Profile="(Default)">40/45</Value>
+    </Setting>
+    <Setting Name="STP_FIO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">40/51</Value>
+    </Setting>
+    <Setting Name="STP_N" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10/71</Value>
+    </Setting>
+    <Setting Name="STP_Z" Type="System.String" Scope="User">
+      <Value Profile="(Default)">20/7</Value>
+    </Setting>
+    <Setting Name="STP_T" Type="System.String" Scope="User">
+      <Value Profile="(Default)">25/56</Value>
+    </Setting>
+    <Setting Name="Koeff_STP" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="Smeshenie" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
