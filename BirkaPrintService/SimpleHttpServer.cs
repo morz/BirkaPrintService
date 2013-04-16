@@ -8,12 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Web;
 
-// offered to the public domain for any use with no restriction
-// and also with no warranty of any kind, please enjoy. - David Jeske. 
-
-// simple HTTP explanation
-// http://www.jmarshall.com/easy/http/
-
 namespace Bend.Util {
 
     public class HttpProcessor {
@@ -207,7 +201,9 @@ namespace Bend.Util {
 
             Console.WriteLine("request: {0}", p.http_url);
             p.writeSuccess();
-            p.outputStream.Write(@"<!DOCTYPE HTML>
+            if (p.http_url == "/")
+            {
+                p.outputStream.Write(@"<!DOCTYPE HTML>
 <html lang=""ru-RU"">
 <head>
     <meta charset=""UTF-8"">
@@ -240,7 +236,8 @@ footer{text-align: center;}
 <script type=""text/javascript"">
   function check(){
         if (document.getElementById('n1').value == undefined || document.getElementById('n1').value == """" ||document.getElementById('n2').value == undefined || document.getElementById('n2').value == """"|| document.getElementById('n3').value == undefined || document.getElementById('n3').value == """"||document.getElementById('n1').value == undefined || document.getElementById('n3').value == """" ||
-document.getElementById('n4').value == undefined || document.getElementById('n4').value == """"|| document.getElementById('n5').value == undefined || document.getElementById('n5').value == """") { alert(""Не все данные введены."");}
+document.getElementById('n4').value == undefined || document.getElementById('n4').value == """"|| document.getElementById('n5').value == undefined || document.getElementById('n5').value == """") { alert(""Не все данные введены."");return false;}else{
+document.getElementById('a').submit();return true;}
     }
 </script>
 </head>
@@ -249,7 +246,7 @@ document.getElementById('n4').value == undefined || document.getElementById('n4'
     <h2>Печать складских бирок</h2>
 </header>
 <article>
-    <form action=""."" method=""post"">
+    <form action=""."" method=""post"" id=""a"">
         <label for=""n1"">Код оборудования</label>
         <input type=""text"" name=""n1"" id=n1>
         <br/>
@@ -281,6 +278,51 @@ document.getElementById('n4').value == undefined || document.getElementById('n4'
 </footer>
 </body>
 </html>");
+            }
+            else
+            {
+                p.outputStream.Write(@"<!DOCTYPE HTML>
+<html lang=""ru-RU"">
+<head>
+    <meta charset=""UTF-8"">
+    <title>Печать бирок</title>
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"" />
+    <style type=""text/css"" media=""screen"">
+        body{background: #97b6d6;}
+        article{min-width:480px; display: block;margin: 0 auto; width: 40%;
+                padding: 10px;
+                   background: #FFF;
+                    -moz-box-shadow: 0 0 3px 3px #b9d0e7;
+                    -webkit-box-shadow: 0 0 3px 3px #b9d0e7;
+                    box-shadow: 0 0 3px 3px #b9d0e7;
+                    border-left:1px solid #97b6d6;
+                    border-right:1px solid #97b6d6;
+min-height: 350px;
+text-align: center; vertical-align: middle;
+}
+a{position: relative; top: 150px; line-height: 35px; color: #000000; font-size: 20px; text-decoration: none; background: #ffffff; border: 1px solid #000000; padding: 15px;}
+    </style>
+    <style type=""text/css"" media=""handheld,only screen and (max-device-width:480px)"">
+        article{min-width:260px;width: 95%;margin: 0;-moz-box-shadow: 0 0 3px 3px #b9d0e7;
+                    -webkit-box-shadow: 0 0 3px 3px #b9d0e7;
+                    box-shadow: 0 0 3px 3px #b9d0e7;
+                    border-left:1px solid #97b6d6;
+                    border-right:1px solid #97b6d6;
+min-height: 350px;
+text-decoration: center;}
+        input{width: 95%;height: 35px; line-height: 35px;}
+        label{width: 95%;}
+        header{display: none;}
+    </style>
+</head>
+<body>
+    <article>
+        <a href=""/stp""><span>По СТП</span></a>&nbsp;<a href=""/old""><span>Старая</span></a>
+    </article>
+</body>
+</html>
+");
+            }
         }
 
         public override void handlePOSTRequest(HttpProcessor p, StreamReader inputData) {
@@ -308,7 +350,7 @@ document.getElementById('n4').value == undefined || document.getElementById('n4'
             p.outputStream.WriteLine("Дата: {0} <br/>", DateTime.Now.ToShortDateString());
             p.outputStream.WriteLine("</body></html>");
             
-            //Print(s);
+            Print(s);
 
         }
 
