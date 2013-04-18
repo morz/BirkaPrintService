@@ -7,13 +7,13 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("BirkaPrintService")]
-[assembly: AssemblyDescription("Печать складскихбирок")]
+[assembly: AssemblyTitle("Печать складских бирок ОЭТС")]
+[assembly: AssemblyDescription("Печать складских бирок")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
+[assembly: AssemblyProduct("Печать складских бирок")]
 [assembly: AssemblyCopyright("Copyright © dr.morz 2013")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Печать складских бирок")]
 [assembly: AssemblyCulture("")]
 
 // Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 

@@ -1,13 +1,32 @@
 ﻿using Bend.Util;
 using System;
+using System.Runtime.InteropServices;
 using System.Threading;
 
 namespace ConsoleApplication1
 {
+    public static class NativeMethods
+    {
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+    }
     class Program
     {
+        
+
         static public int Main(String[] args)
         {
+            Console.Title = "Сервис печати бирок";
+            IntPtr hWnd = NativeMethods.FindWindow(null, Console.Title);
+
+            if (hWnd != IntPtr.Zero)
+            {
+                NativeMethods.ShowWindow(hWnd, 0); // 0 = SW_HIDE
+            }
+
             HttpServer httpServer;
             if (args.GetLength(0) > 0)
             {

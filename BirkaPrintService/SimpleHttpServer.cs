@@ -10,7 +10,7 @@ using System.Web;
 
 namespace Bend.Util {
 
-    public class HttpProcessor {
+    public class HttpProcessor: IDisposable {
         public TcpClient socket;        
         public HttpServer srv;
 
@@ -164,6 +164,13 @@ namespace Bend.Util {
             outputStream.WriteLine("Connection: close");
             outputStream.WriteLine("");
         }
+
+        public void Dispose()
+        {
+            outputStream.Dispose();
+            outputStream = null;
+            srv = null;
+        }
     }
 
     public abstract class HttpServer {
@@ -257,7 +264,7 @@ document.getElementById('a').submit();return true;}
         <input type=""number"" name=""n3"" id=n3>
 <br/>
         <label for=n4>Тип</label>
-        <input type=""number"" name=""n4"" id=n4>
+        <input type=""text"" name=""n4"" id=n4>
 <br/>
         <label for=n5>Фамилия</label>
         <input type=""text"" name=""n5"" id=n5>
